@@ -32,6 +32,15 @@ Navalues <- c(sum(is.na(X$College.Name)), sum(is.na(X$State)),sum(is.na(X$ispubl
 
 NumberofNA <- data.frame(Columnnames,Navalues)
 
+#bar plot of top 10 na values
+library(ggplot2)
+ggplot(NumberofNA, aes(x=Columnnames, y=Navalues)) + geom_bar(stat="identity") + 
+  labs(x="columnnames", y="Navalues")
+library(dplyr)
+top_n(NumberofNA, n=10, Navalues) %>%
+  ggplot(., aes(x=Columnnames, y=Navalues))+
+  geom_bar(stat='identity')
+
 NumberofNA[nrow(NumberofNA) + 1,] = c("Total Na",sum(NumberofNA$Navalues))
 
 
@@ -58,6 +67,8 @@ X
 
 clean_data_set<-X[!(X$Outlier=="True']
 (newData1)
+
+
 
 
 
