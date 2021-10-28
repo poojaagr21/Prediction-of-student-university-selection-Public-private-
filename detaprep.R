@@ -56,7 +56,8 @@ X$outlier= (X$instateTutionFees >20000 & X$outstateTutionFees >25000)
 X
 
 
-
+clean_data_set<-X[!(X$Outlier=="True']
+(newData1)
 
 
 
